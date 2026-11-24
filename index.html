@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trang Chủ - Giao Diện PC & Mobile</title>
+  <!-- Thư viện Icon miễn phí: Font Awesome 6 Free -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/jpg" href="images/herf.webp">
+</head>
+<body>
+
+  <!-- =========================================================
+       GIAO DIỆN MÁY TÍNH (DESKTOP) - Ẩn khi màn hình <= 768px
+       ========================================================= -->
+  <div class="desktop-view">
+    <!-- Header Top -->
+    <header class="pc-header">
+      <div class="pc-header-top">
+        <div class="container pc-header-inner">
+          <!-- Khu vực Logo (Thay src="images/logo.png") -->
+          <a href="#" class="brand-logo">
+            <img
+              src="images/logo.png"
+              alt="Logo"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';"
+            />
+            <span class="logo-fallback"><span>98</span>win</span>
+          </a>
+
+          <!-- Thời gian & Nút Đăng nhập / Đăng ký -->
+          <div class="pc-auth-area">
+            <div class="pc-clock" id="pcClock">2026/11/24(T3) 08:26:32</div>
+            <div class="pc-auth-btns">
+              <button class="btn-outline" onclick="openAuthModal('login')">ĐĂNG NHẬP</button>
+              <button class="btn-primary" onclick="openAuthModal('register')">ĐĂNG KÝ</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Thanh Menu Ngang (Desktop) -->
+      <nav class="pc-navbar">
+        <div class="container">
+          <ul class="pc-nav-list">
+            <li class="active">
+              <a href="#"><i class="fa-solid fa-house"></i><span>TRANG CHỦ</span></a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="badge-hot">HOT</span>
+                <i class="fa-solid fa-coins"></i><span>NỔ HŨ</span>
+              </a>
+            </li>
+            <li>
+              <a href="#"><i class="fa-solid fa-fish-fins"></i><span>BẮN CÁ</span></a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="badge-hot">HOT</span>
+                <i class="fa-solid fa-user-tie"></i><span>SÒNG BÀI</span>
+              </a>
+            </li>
+            <li>
+              <a href="#"><i class="fa-solid fa-futbol"></i><span>THỂ THAO</span></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa-solid fa-dice"></i><span>GAME BÀI</span></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa-solid fa-crow"></i><span>ĐÁ GÀ</span></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa-solid fa-bowling-ball"></i><span>XỔ SỐ</span></a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="badge-hot">HOT</span>
+                <i class="fa-solid fa-gift"></i><span>KHUYẾN MÃI</span>
+              </a>
+            </li>
+            <li>
+              <a href="#"><i class="fa-solid fa-download"></i><span>TẢI APP</span></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa-solid fa-users"></i><span>GIỚI THIỆU</span></a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="badge-percent">60%</span>
+                <i class="fa-solid fa-handshake"></i><span>ĐẠI LÝ</span>
+              </a>
+            </li>
+            <li>
+              <a href="#"><i class="fa-solid fa-crown"></i><span>VIP</span></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Banner Trượt Ngang Vòng Lặp 6 Hình (Desktop) -->
+    <section class="banner-slider pc-slider" id="pcSlider">
+      <div class="slider-track">
+        <!-- Thay thế 6 ảnh banner PC tại đây -->
+        <div class="slide"><img src="images/banner1.jpg" alt="Banner PC 1" onerror="handleBannerFallback(this, 'BANNER PC 1 - ĐẠI TIỆC TIỀN THƯỞNG')" /></div>
+        <div class="slide"><img src="images/banner2.jpg" alt="Banner PC 2" onerror="handleBannerFallback(this, 'BANNER PC 2 - NẠP ĐẦU TẶNG 8.888K')" /></div>
+        <div class="slide"><img src="images/banner3.jpg" alt="Banner PC 3" onerror="handleBannerFallback(this, 'BANNER PC 3 - PHÁT LÌ XÌ NGHÌN TỶ')" /></div>
+        <div class="slide"><img src="images/banner4.jpg" alt="Banner PC 4" onerror="handleBannerFallback(this, 'BANNER PC 4 - NỔ HŨ BẮN CÁ MỖI NGÀY')" /></div>
+        <div class="slide"><img src="images/banner5.jpg" alt="Banner PC 5" onerror="handleBannerFallback(this, 'BANNER PC 5 - HOÀN TRẢ TỨC THÌ')" /></div>
+        <div class="slide"><img src="images/banner6.jpg" alt="Banner PC 6" onerror="handleBannerFallback(this, 'BANNER PC 6 - ĐẶC QUYỀN VIP')" /></div>
+      </div>
+      <button class="slider-btn prev" aria-label="Slide trước"><i class="fa-solid fa-chevron-left"></i></button>
+      <button class="slider-btn next" aria-label="Slide sau"><i class="fa-solid fa-chevron-right"></i></button>
+      <div class="slider-dots"></div>
+    </section>
+
+    <!-- Thanh Thông Báo Chạy Ngang -->
+    <div class="marquee-bar">
+      <div class="container marquee-inner">
+        <span class="marquee-label"><i class="fa-solid fa-volume-high"></i> Tin tức mới nhất:</span>
+        <div class="marquee-track">
+          <p class="marquee-text">
+            Chào mừng hội viên mới! Nạp đầu 50K tặng đến 8.888K. Nếu có thắc mắc về giao dịch nạp rút, vui lòng liên hệ CSKH 24/7 để được hỗ trợ kịp thời. Chú ý bảo mật tài khoản cá nhân!
+          </p>
+        </div>
+      </div>
+    </div>
+<!-- Khu Vực Tính Năng Vượt Trội (Đã thay thế bằng ảnh) -->
+    <section class="pc-features container">
+      <h2 class="section-title">NHỮNG TÍNH NĂNG VƯỢT TRỘI</h2>
+      <div class="features-image-wrapper">
+        <img 
+          src="images/tinh-nang.png" 
+          alt="Những tính năng vượt trội" 
+          class="features-banner"
+          onerror="handleFeaturesFallback(this)"
+        />
+      </div>
+    </section>
+
+    <!-- Thanh Liên Hệ Nổi Bên Phải (Desktop) -->
+    <aside class="pc-floating-dock">
+      <a href="#" title="CSKH 24/7"><i class="fa-solid fa-headset"></i></a>
+      <a href="#" title="Tải App"><i class="fa-solid fa-download"></i></a>
+      <a href="#" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="#" title="Telegram"><i class="fa-brands fa-telegram"></i></a>
+      <a href="#" title="Kênh Thông Báo"><i class="fa-solid fa-paper-plane"></i></a>
+    </aside>
+  </div>
+
+  <!-- =========================================================
+       GIAO DIỆN ĐIỆN THOẠI (MOBILE) - Hiện khi màn hình <= 768px
+       ========================================================= -->
+  <div class="mobile-view">
+    <!-- Dải Promo Trên Cùng -->
+    <div class="mb-top-promo">
+      <span><i class="fa-solid fa-gift"></i> NGÀY 11-28 PHÁT LÌ XÌ NGHÌN TỶ</span>
+    </div>
+
+    <!-- Header Mobile -->
+    <header class="mb-header">
+      <a href="#" class="mb-vip-badge">
+        <i class="fa-solid fa-crown"></i>
+        <span>VIP</span>
+      </a>
+
+      <!-- Logo Mobile (Thay src="images/logo.png") -->
+      <a href="#" class="brand-logo mb-logo">
+        <img
+          src="images/logo.png"
+          alt="Logo"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';"
+        />
+        <span class="logo-fallback"><span>98</span>win</span>
+      </a>
+
+      <button class="mb-menu-toggle" id="mbDrawerBtn" aria-label="Mở menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </header>
+
+    <!-- Banner Trượt Ngang Vòng Lặp 6 Hình (Mobile) -->
+    <section class="banner-slider mb-slider" id="mbSlider">
+      <div class="slider-track">
+        <!-- Thay thế 6 ảnh banner Mobile tại đây -->
+        <div class="slide"><img src="images/banner-mb1.jpg" alt="Banner MB 1" onerror="handleBannerFallback(this, 'TÂN THỦ NẠP ĐẦU 50K - THƯỞNG 8.888K')" /></div>
+        <div class="slide"><img src="images/banner-mb2.jpg" alt="Banner MB 2" onerror="handleBannerFallback(this, 'NGÀY 11 ĐẠI TIỆC TIỀN THƯỞNG')" /></div>
+        <div class="slide"><img src="images/banner-mb3.jpg" alt="Banner MB 3" onerror="handleBannerFallback(this, 'PHÁT LÌ XÌ NGHÌN TỶ MỖI THÁNG')" /></div>
+        <div class="slide"><img src="images/banner-mb4.png" alt="Banner MB 4" onerror="handleBannerFallback(this, 'BẮN CÁ NỔ HŨ THƯỞNG MỖI NGÀY')" /></div>
+        <div class="slide"><img src="images/banner-mb5.jpg" alt="Banner MB 5" onerror="handleBannerFallback(this, 'HOÀN TRẢ KHÔNG GIỚI HẠN')" /></div>
+        <div class="slide"><img src="images/banner-mb6.png" alt="Banner MB 6" onerror="handleBannerFallback(this, 'ĐĂNG KÝ ĐẠI LÝ HOA HỒNG 60%')" /></div>
+      </div>
+      <div class="slider-dots"></div>
+    </section>
+
+    <!-- Thanh Link Chạy Ngang Mobile -->
+    <div class="mb-marquee">
+      <i class="fa-solid fa-volume-high"></i>
+      <div class="marquee-track">
+        <p class="marquee-text">
+          In-v6.com &nbsp;✦&nbsp; 98win-z1.com &nbsp;✦&nbsp; 98win-v7.com &nbsp;✦&nbsp; 98win-a1.com &nbsp;✦&nbsp; 98win-v8.com
+        </p>
+      </div>
+    </div>
+
+    <!-- Hộp Jackpot Đếm Số (Dùng ảnh nền) -->
+    <section class="mb-jackpot">
+      <img src="images/jackpot_bg.png" alt="Jackpot" class="jackpot-bg" />
+      <div class="jackpot-overlay" id="jackpotCounter">
+        <div class="jp-group g2">
+          <span class="jp-digit">1</span>
+          <span class="jp-digit">7</span>
+        </div>
+        <div class="jp-gap"></div>
+        <div class="jp-group g3">
+          <span class="jp-digit">2</span>
+          <span class="jp-digit">0</span>
+          <span class="jp-digit">4</span>
+        </div>
+        <div class="jp-gap"></div>
+        <div class="jp-group g3">
+          <span class="jp-digit">0</span>
+          <span class="jp-digit">7</span>
+          <span class="jp-digit">5</span>
+        </div>
+        <div class="jp-gap"></div>
+        <div class="jp-group g2">
+          <span class="jp-digit">8</span>
+          <span class="jp-digit">6</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Thanh Đăng Nhập / Đăng Ký & Chức Năng Nhanh -->
+    <section class="mb-quick-bar">
+      <div class="mb-auth-col">
+        <button class="mb-btn-login" onclick="openAuthModal('login')">ĐĂNG NHẬP</button>
+        <button class="mb-btn-register" onclick="openAuthModal('register')">ĐĂNG KÝ</button>
+      </div>
+      <div class="mb-actions-col">
+        <a href="#"><i class="fa-solid fa-download"></i><span>TẢI APP</span></a>
+        <a href="#"><i class="fa-solid fa-wallet"></i><span>NẠP TIỀN</span></a>
+        <a href="#"><i class="fa-solid fa-money-bill-transfer"></i><span>RÚT TIỀN</span></a>
+        <a href="#"><i class="fa-solid fa-sack-dollar"></i><span>HOÀN TRẢ</span></a>
+        <a href="#"><i class="fa-solid fa-headset"></i><span>CSKH 24/7</span></a>
+      </div>
+    </section>
+
+    <!-- Khu Vực Chính Mobile: Menu Dọc Bên Trái + Lưới Game Bên Phải -->
+    <main class="mb-main-layout">
+      <!-- Thanh Menu Dọc (Mobile) -->
+      <aside class="mb-vertical-menu" id="mbCategoryMenu">
+        <button class="mb-cat-btn active" data-category="hot">
+          <i class="fa-solid fa-fire"></i>
+          <span>HOT NHẤT</span>
+        </button>
+        <button class="mb-cat-btn" data-category="nohu">
+          <i class="fa-solid fa-coins"></i>
+          <span>NỔ HŨ</span>
+        </button>
+        <button class="mb-cat-btn" data-category="banca">
+          <i class="fa-solid fa-fish-fins"></i>
+          <span>BẮN CÁ</span>
+        </button>
+        <button class="mb-cat-btn" data-category="songbai">
+          <i class="fa-solid fa-dharmachakra"></i>
+          <span>SÒNG BÀI</span>
+        </button>
+        <button class="mb-cat-btn" data-category="gamebai">
+          <i class="fa-solid fa-dice"></i>
+          <span>GAME BÀI</span>
+        </button>
+        <button class="mb-cat-btn" data-category="thethao">
+          <i class="fa-solid fa-futbol"></i>
+          <span>THỂ THAO</span>
+        </button>
+        <button class="mb-cat-btn" data-category="daga">
+          <i class="fa-solid fa-crow"></i>
+          <span>ĐÁ GÀ</span>
+        </button>
+        <button class="mb-cat-btn" data-category="xoso">
+          <i class="fa-solid fa-ticket"></i>
+          <span>XỔ SỐ</span>
+        </button>
+      </aside>
+
+      <!-- Lưới Trò Chơi 3 Cột (Render tự động từ script.js) -->
+      <section class="mb-game-grid" id="mbGameGrid"></section>
+    </main>
+
+    <!-- Ảnh Khuyến Mãi Nổi Góc Trái -->
+    <div class="mb-floating-promo" id="mbFloatingPromo">
+      <button class="close-promo" onclick="document.getElementById('mbFloatingPromo').style.display='none'">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <a href="#">
+        <img
+          src="images/Artboard-1.gif"
+          alt="Hội viên mới 8.888K"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        />
+        <div class="promo-fallback">
+          <small>HỘI VIÊN MỚI</small>
+          <strong>8.888K</strong>
+        </div>
+      </a>
+    </div>
+<!-- Thanh Điều Hướng Dưới Cùng (Mobile Bottom Nav) -->
+    <nav class="mb-bottom-nav">
+      <a href="#" class="active">
+        <i class="fa-solid fa-house"></i>
+        <span>TRANG CHỦ</span>
+      </a>
+      <a href="#">
+        <i class="fa-solid fa-gift"></i>
+        <span>ƯU ĐÃI</span>
+      </a>
+      <a href="#" class="center-agent">
+        <div class="agent-icon-wrap">
+          <i class="fa-solid fa-user-plus"></i>
+        </div>
+        <span>ĐẠI LÝ</span>
+      </a>
+      <a href="#">
+        <i class="fa-solid fa-envelope"></i>
+        <span>HỘP THƯ</span>
+      </a>
+      <a href="#" onclick="openAuthModal('login'); return false;">
+        <span class="account-box-icon"><i class="fa-solid fa-user"></i></span>
+        <span>TÀI KHOẢN</span>
+      </a>
+    </nav>
+
+    <!-- Menu Trượt Bên Phải (Khi bấm nút 3 gạch trên Mobile) -->
+    <div class="mb-drawer-overlay" id="mbDrawerOverlay"></div>
+    <div class="mb-drawer" id="mbDrawer">
+      <div class="mb-drawer-header">
+        <span>DANH MỤC</span>
+        <button id="mbDrawerClose"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <ul class="mb-drawer-list">
+        <li><a href="#"><i class="fa-solid fa-house"></i> Trang chủ</a></li>
+        <li><a href="#"><i class="fa-solid fa-gift"></i> Khuyến mãi</a></li>
+        <li><a href="#"><i class="fa-solid fa-download"></i> Tải App</a></li>
+        <li><a href="#"><i class="fa-solid fa-handshake"></i> Đại lý (60%)</a></li>
+        <li><a href="#"><i class="fa-solid fa-crown"></i> Đặc quyền VIP</a></li>
+        <li><a href="#"><i class="fa-solid fa-headset"></i> CSKH 24/7</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       POPUP ĐĂNG NHẬP / ĐĂNG KÝ (GIAO DIỆN RIÊNG CHO PC & MOBILE)
+       ========================================================= -->
+  <div class="auth-modal" id="authModal">
+    
+    <!-- 1. FORM ĐĂNG NHẬP - MÁY TÍNH (Hình 1) -->
+    <div class="auth-card pc-login-card" id="pcLoginBox">
+      <button type="button" class="pc-close-plain" onclick="closeAuthModal()" aria-label="Đóng">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <h2 class="pc-login-title">ĐĂNG NHẬP</h2>
+      <p class="pc-login-sub">
+        người chơi mới? <a href="#" onclick="switchAuthTab('register'); return false;">ĐĂNG KÝ</a>
+      </p>
+
+      <form class="auth-form-handler" data-form-type="login">
+        <div class="pc-login-field">
+          <input
+            type="text"
+            name="username"
+            placeholder="tài khoản"
+            minlength="6"
+            maxlength="20"
+            required
+          />
+        </div>
+        <div class="pc-login-field has-eye">
+          <input
+            type="password"
+            name="password"
+            placeholder="mật khẩu"
+            minlength="6"
+            maxlength="20"
+            required
+          />
+          <button type="button" class="toggle-eye" onclick="togglePassword(this)">
+            <i class="fa-regular fa-eye-slash"></i>
+          </button>
+        </div>
+        <div class="pc-login-field">
+          <input
+            type="tel"
+            name="phone"
+            placeholder="Số điện thoại"
+            inputmode="numeric"
+            maxlength="10"
+            oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10)"
+            required
+          />
+        </div>
+
+        <div class="pc-forgot-row">
+          <a href="#" onclick="return false;">Quên mật khẩu ?</a>
+        </div>
+
+        <div class="form-error-msg"></div>
+
+        <button type="submit" class="auth-gold-btn">ĐĂNG NHẬP</button>
+      </form>
+
+      <div class="pc-login-footer">
+        <span>Cần trợ giúp?</span>
+        <a href="#" onclick="return false;"><i class="fa-solid fa-headphones"></i> CSKH 24/7</a>
+      </div>
+    </div>
+
+    <!-- 2. FORM ĐĂNG KÝ - MÁY TÍNH (Hình 2) -->
+    <div class="auth-card pc-register-card" id="pcRegisterBox">
+      <div class="pc-reg-header">
+        <h3>ĐĂNG KÝ TÀI KHOẢN</h3>
+        <button type="button" class="pc-reg-close" onclick="closeAuthModal()" aria-label="Đóng">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <form class="pc-reg-body auth-form-handler" data-form-type="register">
+        <div class="reg-group">
+          <label><i class="fa-solid fa-star"></i> Tên tài khoản</label>
+          <input
+            type="text"
+            name="username"
+            minlength="6"
+            maxlength="20"
+            required
+          />
+          <small>Từ 6-20 Kí Tự, Phải Bắt Đầu Bằng Chữ Cái, Có Thể Gồm Cả Chữ Cái, Số Và Gạch Dưới.</small>
+        </div>
+
+        <div class="reg-group">
+          <label><i class="fa-solid fa-star"></i> Mật khẩu thành viên</label>
+          <div class="input-with-eye">
+            <input
+              type="password"
+              name="password"
+              minlength="6"
+              maxlength="20"
+              required
+            />
+            <button type="button" class="toggle-eye" onclick="togglePassword(this)">
+              <i class="fa-regular fa-eye-slash"></i>
+            </button>
+          </div>
+          <small>Từ 6-20 Ký Tự Phải Bao Gồm Chữ Cái Và Số</small>
+        </div>
+
+        <div class="reg-group">
+          <label><i class="fa-solid fa-star"></i> Họ và tên</label>
+          <input
+            type="text"
+            name="fullname"
+            oninput="this.value = this.value.toUpperCase()"
+            required
+          />
+          <small>Họ Tên Đầy Đủ Giống Với Giấy Tờ Cá Nhân. Viết In Hoa, Không Bỏ Dấu, Không Ký Tự Đặc Biệt (Ví Dụ: NGUYEN VAN HOAI)</small>
+        </div>
+
+        <div class="reg-group">
+          <label><i class="fa-solid fa-star"></i> Số điện thoại</label>
+          <input
+            type="tel"
+            name="phone"
+            inputmode="numeric"
+            maxlength="10"
+            oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10)"
+            required
+          />
+          <small>Xin Vui Lòng Nhập Số Điện Thoại Đủ 10 Chữ Số</small>
+        </div>
+
+        <label class="reg-agree">
+          <input type="checkbox" name="agree" checked required />
+          <span>Đã đủ 18 tuổi và đồng ý với trang web này <a href="#" onclick="return false;">Thỏa thuận đăng ký người dùng</a></span>
+        </label>
+
+        <div class="form-error-msg"></div>
+
+        <button type="submit" class="auth-gold-btn pc-reg-submit">ĐĂNG KÝ NGAY</button>
+
+        <div class="pc-reg-footer">
+          Bạn có sẵn sàng để tạo một tài khoản ?
+          <a href="#" onclick="switchAuthTab('login'); return false;">Đăng nhập ngay</a>
+        </div>
+      </form>
+    </div>
+
+    <!-- 3. FORM ĐĂNG NHẬP - ĐIỆN THOẠI (Hình 3) -->
+    <div class="auth-card mb-auth-screen" id="mbLoginBox">
+      <button type="button" class="mb-back-btn" onclick="closeAuthModal()" aria-label="Quay lại">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+
+      <div class="mb-auth-logo">
+        <img src="images/logo.png" alt="Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';" />
+        <span class="logo-fallback"><span>98</span>win</span>
+      </div>
+
+      <div class="mb-auth-panel">
+        <h2 class="mb-panel-title">ĐĂNG NHẬP</h2>
+
+        <form class="auth-form-handler" data-form-type="login">
+          <div class="mb-icon-input">
+            <i class="fa-regular fa-user"></i>
+            <input
+              type="text"
+              name="username"
+              placeholder="TÀI KHOẢN"
+              minlength="6"
+              maxlength="20"
+              required
+            />
+          </div>
+
+          <div class="mb-icon-input">
+            <i class="fa-solid fa-lock"></i>
+            <input
+              type="password"
+              name="password"
+              placeholder="MẬT KHẨU"
+              minlength="6"
+              maxlength="20"
+              required
+            />
+            <button type="button" class="toggle-eye" onclick="togglePassword(this)">
+              <i class="fa-regular fa-eye-slash"></i>
+            </button>
+          </div>
+
+          <div class="mb-icon-input">
+            <i class="fa-solid fa-phone"></i>
+            <input
+              type="tel"
+              name="phone"
+              placeholder="SỐ ĐIỆN THOẠI"
+              inputmode="numeric"
+              maxlength="10"
+              oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10)"
+              required
+            />
+          </div>
+
+          <div class="form-error-msg"></div>
+
+          <button type="submit" class="mb-pill-btn">ĐĂNG NHẬP</button>
+        </form>
+
+        <div class="mb-login-links">
+          <a href="#" class="gold-underline" onclick="switchAuthTab('register'); return false;">ĐĂNG KÝ</a>
+          <a href="#" onclick="return false;">quên mật khẩu?</a>
+        </div>
+
+        <div class="mb-panel-bottom">
+          <a href="#" onclick="closeAuthModal(); return false;">TRANG CHỦ</a>
+          <span>|</span>
+          <a href="#" onclick="return false;">CSKH 24/7</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. FORM ĐĂNG KÝ - ĐIỆN THOẠI (Hình 4) -->
+    <div class="auth-card mb-auth-screen" id="mbRegisterBox">
+      <button type="button" class="mb-back-btn" onclick="closeAuthModal()" aria-label="Quay lại">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+
+      <div class="mb-auth-logo">
+        <img src="images/logo.png" alt="Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';" />
+        <span class="logo-fallback"><span>98</span>win</span>
+      </div>
+
+      <div class="mb-auth-panel">
+        <h2 class="mb-panel-title">ĐĂNG KÝ</h2>
+
+        <form class="auth-form-handler" data-form-type="register">
+          <div class="reg-group mb-reg-group">
+            <label><i class="fa-solid fa-star"></i> Tên tài khoản</label>
+            <input
+              type="text"
+              name="username"
+              minlength="6"
+              maxlength="20"
+              required
+            />
+            <small>Từ 6-20 kí tự, phải bắt đầu bằng chữ cái, có thể gồm cả chữ cái, số và gạch dưới.</small>
+          </div>
+
+          <div class="reg-group mb-reg-group">
+            <label><i class="fa-solid fa-star"></i> Mật khẩu thành viên</label>
+            <div class="input-with-eye">
+              <input
+                type="password"
+                name="password"
+                minlength="6"
+                maxlength="20"
+                required
+              />
+              <button type="button" class="toggle-eye" onclick="togglePassword(this)">
+                <i class="fa-regular fa-eye-slash"></i>
+              </button>
+            </div>
+            <small>Từ 6-20 ký tự phải bao gồm chữ cái và số</small>
+          </div>
+
+          <div class="reg-group mb-reg-group">
+            <label><i class="fa-solid fa-star"></i> Họ và Tên thật</label>
+            <input
+              type="text"
+              name="fullname"
+              oninput="this.value = this.value.toUpperCase()"
+              required
+            />
+            <small>Viết họ tên đầy đủ, chữ in hoa không dấu</small>
+          </div>
+
+          <div class="reg-group mb-reg-group">
+            <label><i class="fa-solid fa-star"></i> Số điện thoại</label>
+            <input
+              type="tel"
+              name="phone"
+              inputmode="numeric"
+              maxlength="10"
+              oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10)"
+              required
+            />
+            <small>Xin vui lòng nhập số điện thoại đủ 10 chữ số</small>
+          </div>
+
+          <label class="reg-agree mb-agree">
+            <input type="checkbox" name="agree" checked required />
+            <span>đã đủ 18 tuổi và đồng ý <a href="#" onclick="return false;">thỏa thuận đăng ký người dùng</a></span>
+          </label>
+
+          <div class="form-error-msg"></div>
+
+          <button type="submit" class="mb-pill-btn">Đăng ký người dùng mới</button>
+        </form>
+
+        <div class="mb-reg-login-link">
+          Bạn đã có tài khoản!? <a href="#" onclick="switchAuthTab('login'); return false;">ĐĂNG NHẬP</a>
+        </div>
+
+        <div class="mb-panel-bottom">
+          <a href="#" onclick="closeAuthModal(); return false;">TRANG CHỦ</a>
+          <span>|</span>
+          <a href="#" onclick="return false;">CSKH 24/7</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
